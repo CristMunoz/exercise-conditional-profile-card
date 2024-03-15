@@ -28,6 +28,11 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  if (variables.name == null) variables.name = "Name";
+  if (variables.lastName == null) variables.lastName = "Lastname";
+  if (variables.role == null) variables.role = "Role";
+  if (variables.city == null) variables.city = "City";
+  if (variables.country == null) variables.country = "Country";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -37,10 +42,10 @@ function render(variables = {}) {
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="${variables.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="${variables.instagram}"><i class="fab fa-instagram"></i></a></li>  
+            <li><a href="${variables.twitter}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${variables.github}" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="${variables.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${variables.instagram}" target="_blank"><i class="fab fa-instagram"></i></a></li>  
           </ul>
         </div>
     `;
